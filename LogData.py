@@ -1,4 +1,4 @@
-import Adafruit_BMP085.BMP085 as BMP085
+import Adafruit_BMP.BMP085 as BMP085
 import time
 import datetime
 

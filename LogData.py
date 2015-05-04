@@ -1,5 +1,4 @@
 import Adafruit_BMP085.BMP085 as BMP085
-import smbus
 import time
 import datetime
 

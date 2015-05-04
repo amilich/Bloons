@@ -40,7 +40,7 @@ while True:
         now = datetime.datetime.now()
         #add all data together
         outvalue =  "Temperature: %.2f C" % temp + " Pressure:    %.2f hPa" % (pressure / 100.0) + "Altitude:    %.2f" % altitude + "\n"
-        outstring = "Reading #: " + readingNum + ": " + str(outvalue)
+        outstring = "Reading #: " + "%i" % readingNum + ": " + str(outvalue)
         print outstring
         myFile.write(outstring)
 

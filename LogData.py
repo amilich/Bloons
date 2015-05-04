@@ -1,4 +1,4 @@
-from Adafruit_BMP085 import BMP085
+import Adafruit_BMP085.BMP085 as BMP085
 import smbus
 import time
 import datetime
@@ -37,6 +37,7 @@ while True:
     f=open('datalog.txt','a') #read/write to file 
     now = datetime.datetime.now()
     timestamp = now.strftime("%Y/%m/%d %H:%M")
+    #add all data together
     outvalue =  "Temperature: %.2f C" % temp + " Pressure:    %.2f hPa" % (pressure / 100.0) + "Altitude:    %.2f" % altitude
     outstring = str(timestamp)+"  "+str(outvalue)
     print outstring

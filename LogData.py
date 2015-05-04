@@ -11,7 +11,7 @@ Revision 1.0: 5/4/15: Basic datalogging to print pressure, alt, temp and time.
 
 #Balloon monitoring/logging data app 
 
-bmp = BMP085(0x77)
+sensor = BMP085.BMP085()
  
 # From Adafruit example: 
 # To specify a different operating mode, uncomment one of the following:

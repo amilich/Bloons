@@ -35,7 +35,7 @@ print("Balloon Data Logger\n")
 readingNum = 1
 
 while True:
-    readingNum++ 
+    readingNum += 1
     with open("datalog.txt", "a") as myfile:
         now = datetime.datetime.now()
         #add all data together

@@ -20,9 +20,9 @@ sensor = BMP085.BMP085()
 # bmp = BMP085(0x77, 2)  # HIRES Mode
 # bmp = BMP085(0x77, 3)  # ULTRAHIRES Mode
  
-temp = sensor.readTemperature()
-pressure = sensor.readPressure()
-altitude = sensor.readAltitude()
+temp = sensor.read_temperature()
+pressure = sensor.read_pressure()
+altitude = sensor.read_altitude()
  
 print "Temperature: %.2f C" % temp
 print "Pressure:    %.2f hPa" % (pressure / 100.0)

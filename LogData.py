@@ -36,7 +36,7 @@ readingNum = 1
 
 while True:
     readingNum += 1
-    with open("datalog.txt", "a") as myfile:
+    with open("datalog.txt", "a") as myFile:
         now = datetime.datetime.now()
         #add all data together
         outvalue =  "Temperature: %.2f C" % temp + " Pressure:    %.2f hPa" % (pressure / 100.0) + "Altitude:    %.2f" % altitude + "\n"

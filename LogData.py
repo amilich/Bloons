@@ -44,5 +44,5 @@ while True:
     f.close()
 
     #log temperature every 60 seconds
-    time.sleep(60)
+    time.sleep(10)
     

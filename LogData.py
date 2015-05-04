@@ -32,16 +32,17 @@ print "Altitude:    %.2f" % altitude
 
 print("Balloon Data Logger\n")
 
+readingNum = 1
+
 while True:
-    f=open('datalog.txt','a') #read/write to file 
-    now = datetime.datetime.now()
-    timestamp = now.strftime("%Y/%m/%d %H:%M")
-    #add all data together
-    outvalue =  "Temperature: %.2f C" % temp + " Pressure:    %.2f hPa" % (pressure / 100.0) + "Altitude:    %.2f" % altitude
-    outstring = str(timestamp)+"  "+str(outvalue)
-    print outstring
-    f.write(outstring)
-    f.close()
+    readingNum++; 
+    with open("datalog.txt", "a") as myfile:
+        now = datetime.datetime.now()
+        #add all data together
+        outvalue =  "Temperature: %.2f C" % temp + " Pressure:    %.2f hPa" % (pressure / 100.0) + "Altitude:    %.2f" % altitude + "\n"
+        outstring = "Reading #: " + readingNum + ": " + str(outvalue)
+        print outstring
+        myFile.write(outstring)
 
     #log temperature every 60 seconds
     time.sleep(10)

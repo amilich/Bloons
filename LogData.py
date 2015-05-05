@@ -1,24 +1,22 @@
 import Adafruit_BMP.BMP085 as BMP085
 import time
 import datetime
+import gps
 
 """ 
 
 Revision 1.0: 5/4/15: Basic datalogging to print pressure, alt, temp and time. 
 	TODO: add GPS loc, speed, etc. at time as well as accelerometer at the time. 
 
+Revision 1.2: 5/5/15: Added GPS logging 
+    TODO: add accelerometer data at the time. 
+
 """
 
 #Balloon monitoring/logging data app 
 
 sensor = BMP085.BMP085()
- 
-# From Adafruit example: 
-# To specify a different operating mode, uncomment one of the following:
-# bmp = BMP085(0x77, 0)  # ULTRALOWPOWER Mode
-# bmp = BMP085(0x77, 1)  # STANDARD Mode
-# bmp = BMP085(0x77, 2)  # HIRES Mode
-# bmp = BMP085(0x77, 3)  # ULTRAHIRES Mode
+sensor = BMP085(0x77, 3)  # ULTRAHIRES Mode
  
 temp = sensor.read_temperature()
 pressure = sensor.read_pressure()
@@ -36,6 +34,19 @@ readingNum = 1
 
 while True:
     readingNum += 1
+    try: 
+        report = session.next()
+        print report 
+        #if report['class'] == 'TPV':
+        #    if hasattr(report, 'time'):
+        #        print report.time
+    except KeyError:
+        pass
+    except KeyboardInterrupt:
+        quit()
+    except StopIteration:
+        session = None
+        print "GPSD has terminated"
     with open("datalog.txt", "a") as myFile:
         now = datetime.datetime.now()
         #add all data together
@@ -46,4 +57,3 @@ while True:
 
     #log temperature every 60 seconds
     time.sleep(10)
-    

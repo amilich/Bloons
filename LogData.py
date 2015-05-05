@@ -21,10 +21,6 @@ sensor = BMP085(0x77, 3)  # ULTRAHIRES Mode
 temp = sensor.read_temperature()
 pressure = sensor.read_pressure()
 altitude = sensor.read_altitude()
- 
-print "Temperature: %.2f C" % temp
-print "Pressure:    %.2f hPa" % (pressure / 100.0)
-print "Altitude:    %.2f" % altitude
 
 # log data: http://www.instructables.com/id/Raspberry-Pi-Temperature-Logger/
 

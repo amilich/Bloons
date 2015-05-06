@@ -1,6 +1,6 @@
 import Adafruit_BMP.BMP085 as BMP085
 from Adafruit_I2C import Adafruit_I2C
-from Adafruit_LSM303.py import * 
+from Adafruit_LSM303 import * 
 import time
 import datetime
 import gps

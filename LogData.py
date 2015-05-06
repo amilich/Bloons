@@ -19,11 +19,11 @@ if __name__ == '__main__':
     #Balloon monitoring/logging data app 
     
     sensor = BMP085.BMP085(mode=BMP085.BMP085_ULTRAHIGHRES)
-     
-    temp = sensor.read_temperature()
-    pressure = sensor.read_pressure()
-    altitude = sensor.read_altitude()
     lsm = Adafruit_LSM303()
+    session = gps.gps("localhost", "2947")
+    session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
+
+    
     # log data: http://www.instructables.com/id/Raspberry-Pi-Temperature-Logger/
 
     print("Balloon Data Logger\n")
@@ -32,7 +32,11 @@ if __name__ == '__main__':
     
     while True:
         readingNum += 1
-        """try: 
+
+        temp = sensor.read_temperature()
+        pressure = sensor.read_pressure()
+        altitude = sensor.read_altitude()
+        try: 
             report = session.next()
             print report 
             #if report['class'] == 'TPV':
@@ -44,7 +48,7 @@ if __name__ == '__main__':
             quit()
         except StopIteration:
             session = None
-            print "GPSD has terminated"""
+            print "GPSD has terminated"
         with open("datalog.txt", "a") as myFile:
             now = datetime.datetime.now()
             #add all data together

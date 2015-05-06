@@ -32,7 +32,7 @@ if __name__ == '__main__':
     
     while True:
         readingNum += 1
-        try: 
+        """try: 
             report = session.next()
             print report 
             #if report['class'] == 'TPV':
@@ -44,7 +44,7 @@ if __name__ == '__main__':
             quit()
         except StopIteration:
             session = None
-            print "GPSD has terminated"
+            print "GPSD has terminated"""
         with open("datalog.txt", "a") as myFile:
             now = datetime.datetime.now()
             #add all data together

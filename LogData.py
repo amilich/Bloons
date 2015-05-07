@@ -82,7 +82,7 @@ if __name__ == '__main__':
             try: 
                 report = session.next() #update GPS 
                 if printData: 
-                    print "GPS Report: " str(report)
+                    print "GPS Report: " + str(report)
                     if hasattr(report, 'time'):
                         print "GPS Time: "+ report.time
                     print "Report Attributes: " + dir(report)

@@ -81,6 +81,26 @@ if __name__ == '__main__':
             #gps data
             try: 
                 report = session.next() #update GPS 
+
+                if hasattr(report, 'time'):
+                    myFile.write("GPS Time: " + str(report.time))
+
+                if hasattr(report, 'lat'):
+                    myFile.write("GPS Lat: " + str(report.lat))
+
+                if hasattr(report, 'lon'):
+                    myFile.write("GPS Lon: " + str(report.lon))
+
+                if hasattr(report, 'alt'):
+                    myFile.write("GPS Alt: " + str(report.alt))
+
+                if hasattr(report, 'climb'):
+                    myFile.write("GPS Climb: " + str(report.climb))
+
+                if hasattr(report, 'speed'):
+                    myFile.write("GPS Speed: " + str(report.speed))
+
+
                 if printData: 
 
                     if hasattr(report, 'time'):

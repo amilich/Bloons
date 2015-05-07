@@ -54,6 +54,10 @@ if __name__ == '__main__':
         pressure = sensor.read_pressure()
         altitude = sensor.read_altitude()
 
+        LSM303_Output = lsm.read()
+        accelerometerInfo=LSM303_Output[0]
+        magnetometerInfo=LSM303_Output[1]
+
         with open("datalog.txt", "a") as myFile:
             #add reading # and then temperature data 
             myFile.write("****** READING #" + str(readingNum) + " ******")
@@ -61,15 +65,18 @@ if __name__ == '__main__':
 
 
             tempLine =  "Temperature: %.2f C" % temp + " Pressure: %.2f hPa" % (pressure / 100.0) + "Altitude: %.2f" % altitude + "\n"
+            accelLine= "Accelerometer X, Y, Z: " + str(accelerometerInfo)
+            magLine = "Magnetometer X, Y, Z, orientation: " + str(magnetometerInfo)
             
+
             myFile.write(tempLine)
-            myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
-            myFile.write(str(lsm.read()).strip('[]'))
+            myFile.write(accelLine)
+            myFile.write(magLine)
 
             if printData: 
                 print tempLine
-                print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
-                print str(lsm.read()).strip('[]')
+                print accelLine
+                print magLine
 
             #gps data
             try: 
@@ -77,6 +84,7 @@ if __name__ == '__main__':
                 if printData: 
                     print type(report)
                     print report
+                    print report.time
                 myFile.write("GPS Report: ")
                 #myFile.write(report)
             except KeyError:

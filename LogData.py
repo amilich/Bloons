@@ -76,8 +76,9 @@ if __name__ == '__main__':
                 report = session.next() #update GPS 
                 if printData: 
                     print type(report)
+                    print report
                 myFile.write("GPS Report: ")
-                myFile.write(report)
+                #myFile.write(report)
             except KeyError:
                 pass
             except KeyboardInterrupt:

@@ -85,7 +85,7 @@ if __name__ == '__main__':
                     print "GPS Report: " + str(report)
                     if hasattr(report, 'time'):
                         print "GPS Time: "+ report.time
-                    print "Report Attributes: " + dir(report)
+                    print "Report Attributes: " + str(dir(report))
                 myFile.write("GPS Report: ")
                 #myFile.write(report)
             except KeyError:

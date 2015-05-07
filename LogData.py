@@ -101,9 +101,6 @@ if __name__ == '__main__':
                     if hasattr(report, 'speed'):
                         print "GPS Speed: " + str(report.speed)
 
-                    if hasattr(report, 'satellites'):
-                        print "GPS Satellites: " + str(report.satellites)
-
                     print "\n"
                     print "GPS Report: " + str(report)
                     print "Report Attributes: " + str(dir(report))

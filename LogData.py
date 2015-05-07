@@ -64,7 +64,7 @@ if __name__ == '__main__':
             myFile.write("****** TIME ELAPSED: %s seconds ******" % (time.time() - start_time))
 
 
-            tempLine =  "Temperature: %.2f C" % temp + " Pressure: %.2f hPa" % (pressure / 100.0) + "Altitude: %.2f" % altitude + "\n"
+            tempLine =  "Temperature: %.2f C" % temp + " Pressure: %.2f hPa" % (pressure / 100.0) + "Altitude: %.2f" % altitude
             accelLine= "Accelerometer X, Y, Z: " + str(accelerometerInfo)
             magLine = "Magnetometer X, Y, Z, orientation: " + str(magnetometerInfo)
             
@@ -99,7 +99,7 @@ if __name__ == '__main__':
                     print "GPSD has terminated"
                 myFile.write("*** GPS FAIL ***")
     
-            myFile.write("\n") #clean data with newline 
+            myFile.write("\n \n") #clean data with newline 
 
         time.sleep(10) #sleep for 10s
     

@@ -64,19 +64,18 @@ if __name__ == '__main__':
             
             myFile.write(tempLine)
             myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
-            #myFile.write(lsm.read())
+            myFile.write(str(lsm.read()).strip('[]'))
 
             if printData: 
                 print tempLine
                 print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
-                print type(lsm.read())
-                print lsm.read()
+                print str(lsm.read()).strip('[]')
 
             #gps data
             try: 
                 report = session.next() #update GPS 
                 if printData: 
-                    print report 
+                    print type(report)
                 myFile.write("GPS Report: ")
                 myFile.write(report)
             except KeyError:

@@ -82,23 +82,27 @@ if __name__ == '__main__':
             try: 
                 report = session.next() #update GPS 
                 if printData: 
+
                     if hasattr(report, 'time'):
-                        print "GPS Time: " + report.time
+                        print "GPS Time: " + str(report.time)
 
                     if hasattr(report, 'lat'):
-                        print "GPS Lat: " + report.lat
+                        print "GPS Lat: " + str(report.lat)
 
                     if hasattr(report, 'lon'):
-                        print "GPS Lon: " + report.lon
+                        print "GPS Lon: " + str(report.lon)
 
                     if hasattr(report, 'alt'):
-                        print "GPS Alt: " + report.alt
+                        print "GPS Alt: " + str(report.alt)
 
                     if hasattr(report, 'climb'):
-                        print "GPS Climb: " + report.climb
+                        print "GPS Climb: " + str(report.climb)
 
                     if hasattr(report, 'speed'):
-                        print "GPS Speed: " + report.speed
+                        print "GPS Speed: " + str(report.speed)
+
+                    if hasattr(report, 'satellites'):
+                        print "GPS Satellites: " + str(report.satellites)
 
                     print "\n"
                     print "GPS Report: " + str(report)

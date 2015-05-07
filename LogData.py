@@ -55,14 +55,14 @@ if __name__ == '__main__':
         with open("datalog.txt", "a") as myFile:
             #add reading # and then temperature data 
             myFile.write("****** READING #" + readingNum + " ******")
-            myFile.write("****** TIME ELAPSED: " + (time.time() - start_time) + " ******")
+            myFile.write("****** TIME ELAPSED: %s seconds ******" % (time.time() - start_time))
             tempLine =  "Temperature: %.2f C" % temp + " Pressure: %.2f hPa" % (pressure / 100.0) + "Altitude: %.2f" % altitude + "\n"
             if printData: 
                     print tempLine 
             myFile.write(outstring)
 
         if printData: 
-            print '[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]'
+            print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
             print lsm.read()
         myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
         myFile.write(lsm.read())

@@ -82,11 +82,10 @@ if __name__ == '__main__':
             try: 
                 report = session.next() #update GPS 
                 if printData: 
-                    print type(report)
-                    print report
+                    print "GPS Report: " + report
                     if hasattr(report, 'time'):
-                        print report.time
-                    print dir(report)
+                        print "GPS Time: "+ report.time
+                    print "Report Attributes: " + dir(report)
                 myFile.write("GPS Report: ")
                 #myFile.write(report)
             except KeyError:

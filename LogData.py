@@ -36,8 +36,8 @@ if __name__ == '__main__':
     session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
     print("Balloon Data Logger\n")
-    myFile = open("datalog.txt", "a")
-    myFile.write("Initializing Data Logger")
+    #myFile = open("datalog.txt", "a")
+    #myFile.write("Initializing Data Logger")
 
     #if we don't have the current time, we can estimate it based on the number of readings and 
     #the python time module 
@@ -56,34 +56,37 @@ if __name__ == '__main__':
             #add reading # and then temperature data 
             myFile.write("****** READING #" + str(readingNum) + " ******")
             myFile.write("****** TIME ELAPSED: %s seconds ******" % (time.time() - start_time))
+
+
             tempLine =  "Temperature: %.2f C" % temp + " Pressure: %.2f hPa" % (pressure / 100.0) + "Altitude: %.2f" % altitude + "\n"
-            if printData: 
-                    print tempLine 
-            myFile.write(outstring)
+            
+            myFile.write(tempLine)
+            myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
+            myFile.write(lsm.read())
 
-        if printData: 
-            print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
-            print lsm.read()
-        myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
-        myFile.write(lsm.read())
-
-        #gps data
-        try: 
-            report = session.next() #update GPS 
             if printData: 
-                print report 
-            myFile.write("GPS Report: ")
-            myFile.write(report)
-        except KeyError:
-            pass
-        except KeyboardInterrupt:
-            quit() #TODO: check this 
-        except StopIteration:
-            session = None
-            if printData: 
-                print "GPSD has terminated"
-            myFile.write("*** GPS FAIL ***")
+                print tempLine
+                print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
+                print lsm.read()
 
-        myFile.write("\n") #clean data with newline 
+            #gps data
+            try: 
+                report = session.next() #update GPS 
+                if printData: 
+                    print report 
+                myFile.write("GPS Report: ")
+                myFile.write(report)
+            except KeyError:
+                pass
+            except KeyboardInterrupt:
+                quit() #TODO: check this 
+            except StopIteration:
+                session = None
+                if printData: 
+                    print "GPSD has terminated"
+                myFile.write("*** GPS FAIL ***")
+    
+            myFile.write("\n") #clean data with newline 
+            
         time.sleep(10) #sleep for 10s
     

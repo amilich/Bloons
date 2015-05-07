@@ -36,8 +36,10 @@ if __name__ == '__main__':
     session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
     print("Balloon Data Logger\n")
-    #myFile = open("datalog.txt", "a")
-    #myFile.write("Initializing Data Logger")
+
+    with open("datalog.txt", "a") as myFile:
+        myFile = open("datalog.txt", "a")
+        myFile.write("Initializing Data Logger")
 
     #if we don't have the current time, we can estimate it based on the number of readings and 
     #the python time module 
@@ -62,11 +64,12 @@ if __name__ == '__main__':
             
             myFile.write(tempLine)
             myFile.write("(Accel X,Y,Z), (Magnetometer X, Y, Z, orient)")
-            myFile.write(lsm.read())
+            #myFile.write(lsm.read())
 
             if printData: 
                 print tempLine
                 print "[(Accelerometer X, Y, Z), (Magnetometer X, Y, Z, orientation)]"
+                print type(lsm.read())
                 print lsm.read()
 
             #gps data
@@ -87,6 +90,6 @@ if __name__ == '__main__':
                 myFile.write("*** GPS FAIL ***")
     
             myFile.write("\n") #clean data with newline 
-            
+
         time.sleep(10) #sleep for 10s
     

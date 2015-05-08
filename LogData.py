@@ -19,6 +19,8 @@ Revision 1.3: 5/6/15: New logging
 GitHub Repo: 
     https://www.github.com/amilich/Bloons
 
+Must Run Before Can Use GPS:
+    sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
 """
 
 # Log data: http://www.instructables.com/id/Raspberry-Pi-Temperature-Logger/
@@ -121,12 +123,10 @@ if __name__ == '__main__':
                     if hasattr(report, 'speed'):
                         print "GPS Speed: " + str(report.speed)
 
-                    print "\n"
-                    print "GPS Report: " + str(report)
-                    print "Report Attributes: " + str(dir(report))
+                    #print "\n"
+                    #print "GPS Report: " + str(report)
+                    #print "Report Attributes: " + str(dir(report))
                     print "\n \n"
-                myFile.write("GPS Report: ")
-                #myFile.write(report)
             except KeyError:
                 pass
             except KeyboardInterrupt:

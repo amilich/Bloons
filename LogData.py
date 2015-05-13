@@ -139,5 +139,5 @@ if __name__ == '__main__':
     
             myFile.write("\n \n") #clean data with newline 
 
-        time.sleep(10) #sleep for 10s
+        time.sleep(2) #sleep for 2s 
     

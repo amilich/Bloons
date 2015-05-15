@@ -51,15 +51,24 @@ if __name__ == '__main__':
     while True:
         readingNum += 1
 
-        #update temperature readings 
-        temp = sensor.read_temperature()
-        pressure = sensor.read_pressure()
-        altitude = sensor.read_altitude()
+        #update temperature readings
 
-        LSM303_Output = lsm.read()
-        accelerometerInfo=LSM303_Output[0]
-        magnetometerInfo=LSM303_Output[1]
+        try:
 
+            temp = sensor.read_temperature()
+            pressure = sensor.read_pressure()
+            altitude = sensor.read_altitude()
+
+            LSM303_Output = lsm.read()
+            accelerometerInfo=LSM303_Output[0]
+            magnetometerInfo=LSM303_Output[1]
+
+        except:
+            temp = "Error"
+            pressure = "Error"
+            altitude = "Error"
+            accelerometerInfo = "Error"
+            magnetometerInfo = "Error"
         with open("datalog.txt", "a") as myFile:
             #add reading # and then temperature data 
             myFile.write("****** READING #" + str(readingNum) + " ******")

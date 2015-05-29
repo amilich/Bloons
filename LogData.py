@@ -8,13 +8,16 @@ import gps
 """ 
 
 Revision 1.0: 5/4/15: Basic datalogging to print pressure, alt, temp and time. 
-	TODO: add GPS loc, speed, etc. at time as well as accelerometer at the time. 
+    TODO: add GPS loc, speed, etc. at time as well as accelerometer at the time. 
 
 Revision 1.2: 5/5/15: Added GPS logging 
     TODO: add accelerometer data at the time. 
 
 Revision 1.3: 5/6/15: New logging 
     TODO: test GPS 
+
+Revision 1.4 (final): 5/14/15 (updated later)
+    Added try except error catching. 
 
 GitHub Repo: 
     https://www.github.com/amilich/Bloons
@@ -148,5 +151,6 @@ if __name__ == '__main__':
     
             myFile.write("\n \n") #clean data with newline 
 
-        time.sleep(2) #sleep for 2s 
+        time.sleep(2) #sleep for 2s - this may be causing i2c problems?
+            #no errors for time.sleep(5) 
     

@@ -24,6 +24,7 @@ GitHub Repo:
 
 Must Run Before Can Use GPS:
     sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+
 """
 
 # Log data: http://www.instructables.com/id/Raspberry-Pi-Temperature-Logger/

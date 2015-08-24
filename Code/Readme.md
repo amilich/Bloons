@@ -1,0 +1,1 @@
+Code for Raspberry Pi and data trimming. Also includes wiring diagram. 

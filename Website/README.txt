@@ -3,6 +3,8 @@ VERSIONS
 V1.0 (09/20/15)- Initial Public Release
 	Initial site layout and text organized
 	Some pictures added
+V1.1 (9/20/15)- Google Analytics Update
+	 Added Google Analytics Code
 
 TO DO
 	-Add Contact Info

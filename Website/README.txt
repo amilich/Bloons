@@ -9,6 +9,10 @@ V1.1.0 (9/30/15)- Photos and Bug Fixes
 	Added expandable data graphs to final results
 	Added low quality balloon map tracks
 	Fixed bug where couldn’t start video on mobile/small devices
+V1.1.1 (10/01/15)-Maps and text fixing
+	Added interactive maps of tracking data
+	Fixed lengths of about texts being slightly off
+	Added email address to contact info on bottom of page
 
 TO DO
 	-Add Contact Info
@@ -16,6 +20,4 @@ TO DO
 	-Add Balloon Pictures
 	-Add Additional Images
 	-Make Sensor Data Interactive
-	-Add Better Balloon Track Maps
 	-Make more Images Expandable
-	-Shrink Andrew’s Text (Size Issues)
